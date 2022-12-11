@@ -1,7 +1,6 @@
 /* ===== INSERTS PRODUCTORA INICIO ==*/
-insert all 
-into PRODUCTORA(id_productora,nombre,logo,mision,tipo,id_lugar) values (10,'club social',BFILENAME('direc_imagenes_productora', 'productora.jpg'),'my mision increible','cacao',58)
-into PRODUCTORA(id_productora,nombre,logo,mision,tipo,id_lugar) values (11,'testingabc',BFILENAME('direc_imagenes_productora', 'productora.jpg'),'my mision test','chocolate',1)
-select * from dual;
+insert into PRODUCTORA(nombre,logo,mision,tipo,id_lugar) values ('Acopagro',BFILENAME('direc_produc_logos', 'acopagro_logo.png'),'my mision increible','cacao',2);
+insert into PRODUCTORA(nombre,logo,mision,tipo,id_lugar) values ('KKOReal',BFILENAME('direc_produc_logos', 'KKOReal_Logo.jpg'),'my mision test','cacao',1);
+insert into PRODUCTORA(nombre,logo,mision,tipo,id_lugar) values ('Cofina',BFILENAME('direc_produc_logos', 'logo-cofinaOK2.png'),'my mision test','cacao',1);
 commit;
 /* ===== INSERTS PRODUCTORA FIN ==*/

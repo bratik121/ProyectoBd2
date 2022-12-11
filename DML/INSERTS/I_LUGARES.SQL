@@ -1,5 +1,10 @@
-insert all 
-into LUGAR(codigo,tipo,nombre,continente) values (58,'pais','venezuela','sur america')
-into LUGAR(codigo,tipo,nombre,continente) values (1,'pais','USA','nore america')
-select * from dual;
+insert into LUGAR(tipo,nombre,continente) values ('pais','Venezuela','SA');
+insert into LUGAR(tipo,nombre,continente) values ('pais','Ecuador','SA');
+insert into LUGAR(tipo,nombre,continente) values ('pais','Peru','SA');
+insert into LUGAR(tipo,nombre,continente,codigo_lug_2) values ('region','Miranda','SA',1);
+insert into LUGAR(tipo,nombre,continente,codigo_lug_2) values ('region','Guayas','SA',2);
+insert into LUGAR(tipo,nombre,continente,codigo_lug_2) values ('region','San Martín','SA',3);
+insert into LUGAR(tipo,nombre,continente,codigo_lug_2) values ('ciudad','Guatire','SA',4);
+insert into LUGAR(tipo,nombre,continente,codigo_lug_2) values ('ciudad','Guayaquil','SA',5);
+insert into LUGAR(tipo,nombre,continente,codigo_lug_2) values ('ciudad','Juanjui','SA',6);
 commit;
