@@ -1,4 +1,3 @@
-
 /* ===== TDAS ===== */
 create or replace type DETALLE as object(
     cant_kg number(5),
