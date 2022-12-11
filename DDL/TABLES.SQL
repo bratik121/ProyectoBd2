@@ -1,17 +1,17 @@
 
 /* ===== TABLES ===== */
 create table CACAO(
-    id_cacao number(5) not null,
+    id_cacao number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     nombre_variedad varchar2(25) not null,
     tipo varchar2(15) not null,
     descripcion varchar2(200) not null,
-    id_lugar number(4),
+    id_lugar number(8),
     primary key (id_cacao),
     constraint tipo_cacao check (tipo in ('suave', 'fuerte'))
 );
 
 create table HIST_PRECIO(
-    id_precio number(5) not null,
+    id_precio number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha_inicio date not null,
     fecha_fin date,
     precio number(10,2) not null,
@@ -30,23 +30,23 @@ create table DET_EXPED(
     id_cacao number(5) not null,
     id_contr number(4) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_cacao,id_productora,id_contr,id_chocolateria,id_lugar)
 ) nested table envios store as ENVIO_TAB ;
 
-create or replace table PRODUCTORA(
-    id_productora number(5) not null,
+create table PRODUCTORA(
+    id_productora number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     nombre varchar2(25) not null,
     logo Bfile not null,
     mision varchar2(500) not null,
     tipo varchar2(15) not null,
-    id_lugar number(4),
+    id_lugar number(8),
     primary key (id_productora),
     constraint tipo_productora check (tipo in ('cacao', 'chocolate', 'ambos'))
 );
 
 create table CATAL_CHOCOLATES(
-    id_catl number(5) not null,
+    id_catl number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     nombre varchar2(25) not null,
     tipo varchar2(15) not null,
     manteca_cacao_porc number(3),
@@ -60,7 +60,7 @@ create table CATAL_CHOCOLATES(
 ) nested table temperaturas store as TEMP_TAB ;
 
 create table PRESENTACION(
-    id_presentacion number(5) not null,
+    id_presentacion number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     tipo varchar2(10) not null,
     peso_gramos number(5) not null,
     id_catl number(5) not null,
@@ -70,38 +70,39 @@ create table PRESENTACION(
 );
 
 create table DISPONIBILIDAD_ENV(
-    id_disponibilidad number(5) not null,
-    id_lugar number(4) not null,
+    id_disponibilidad number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
+    id_lugar number(8) not null,
     id_productora number(5),
     id_presentacion number(5),
     id_catl number(5),
     primary key (id_disponibilidad,id_lugar)
 );
 
-create or replace table LUGAR(
-    codigo number(4) not null,
+create table LUGAR(
+    codigo number(8) not null,
     tipo varchar2(10) not null,
     nombre varchar2(25) not null,
     continente varchar2(25),
-    codigo_lug_2 number(4),
+    codigo_lug_2 number(8),
     primary key (codigo),
+    constraint tipo_lugar check (tipo in ('pais', 'ciudad', 'region')),
     constraint tipo_continente check (continente in ('SA', 'NA', 'OCE', 'AS', 'EU', 'AFR'))
 );
 
 create table CONTRATO(
-    id_contr number(4) not null,
+    id_contr number(4) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha_emision date not null,
     total number(15) not null,
     estatus varchar2(25) not null,
     id_productora number(5) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_productora,id_contr,id_chocolateria,id_lugar),
     constraint estatus_contrato check (estatus in ('vigente', 'cancelado'))
 );
 
 create table COND_PAGO_ENVIO(
-    id_cond_pago number(5) not null,
+    id_cond_pago number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     tipo varchar2(20) not null,
     porc_recargo_env number(3),
     cant_cuotas number(2),
@@ -114,39 +115,39 @@ create table COND_PAGO_ENVIO(
 );
 
 create table DET_PEDIDO(
-    id_detped number(10) not null,
+    id_detped number(10) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     cantidad number(4) not null,
     id_presentacion number(5),
     id_catl number(5),
     id_pedido number(8) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_detped,id_pedido,id_chocolateria,id_lugar,id_productora)
 );
 
 create table DET_FACTURA(
-    id_det_factura number(10) not null,
+    id_det_factura number(10) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     lotes LOTE_NT,
     id_fac number(8) not null,
     id_pedido number(8) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_det_factura,id_fac,id_pedido,id_chocolateria,id_lugar,id_productora)
 ) nested table lotes store as LOTE_TAB ;
 
 create table FORMULA(
-    id_formula number(4) not null,
+    id_formula number(4) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     calidad_material_porc number(3) not null,
     cumplimiento_porc number(3) not null,
-    precio_porc number(3) not null,
+    precio_porc number(3,2) not null,
     condicion_envio_pago varchar2(100) not null,
     aceptacion_porc number(3) not null,
     Rango_Esp_Sup number(3) not null,
     Rango_Esp_Inf number(3) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5),
     primary key (id_formula,id_chocolateria,id_lugar)
 );
@@ -167,7 +168,7 @@ create table CHOCOLATERIA(
   nested table precio_esp store as PRECIO_TAB;
 
 create table PEDIDO(
-    id_pedido number(8) not null,
+    id_pedido number(8) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha_emision date not null,
     fecha_deseada date not null,
     cond_envio varchar2(50) not null,
@@ -175,77 +176,77 @@ create table PEDIDO(
     fecha_env_estim date not null,
     fecha_env_real date not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_pedido,id_productora,id_chocolateria,id_lugar),
     constraint estatus_pedido check (estatus in ('aceptado', 'rechazado', 'en_espera'))
 );
 
 create table FACTURA(
-    id_fac number(8) not null,
+    id_fac number(8) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha_emision date not null,
     monto_Total number(10) not null,
     id_pedido number(8) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_fac,id_pedido,id_chocolateria,id_lugar,id_productora)
 );
 
 create table FACT_BOMBONES(
-    id_fact_bombon number(10) not null,
+    id_fact_bombon number(10) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha_emision date not null,
     monto number(6) not null,
     detalles DETALLE_NT,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_fact_bombon,id_chocolateria,id_lugar)
 ) nested table detalles store as DET_TAB ;
 
 create table BOMBON_CATALOGO(
-    id_bombon number(5) not null,
+    id_bombon number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     nombre varchar2(25) not null,
     tipo_chocolate varchar2(30) not null,
     nom_coleccion varchar2(25),
     foto Bfile not null,
     Ingrediente_esp INGRED_ARRAY,
     descripcion varchar2(200) not null,
-    precio_kg number(4) not null,
+    precio_kg number(4,2) not null,
     votos VOTO_NT,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_bombon,id_chocolateria,id_lugar)
 ) nested table votos store as VOTO_TAB;
 
 create table PAGO(
-    id_pago number(10) not null,
+    id_pago number(10) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha date not null,
     monto number(6) not null,
     id_fac number(8) not null,
     id_pedido number(8) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_pago,id_fac,id_pedido,id_chocolateria,id_lugar,id_productora)
 );
 
 create table PED_ACEPTADO(
-    id_acep number(8) not null,
+    id_acep number(8) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     fecha_promet date not null,
     fecha_entr date,
     id_pedido number(8) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_acep,id_pedido,id_chocolateria,id_lugar,id_productora)
 );
 
 create table PED_RECHAZADO(
-    id_rchaz number(8) not null,
+    id_rchaz number(8) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     razon varchar2(150) not null,
     id_pedido number(8) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     id_productora number(5) not null,
     primary key (id_rchaz,id_chocolateria,id_lugar,id_productora)
 );
@@ -261,7 +262,7 @@ create table COND_CONT(
     id_productora number(5) not null,
     id_contr number(4) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_cond_pago,id_productora,id_contr,id_chocolateria,id_lugar)
 );
 
@@ -270,7 +271,7 @@ create table COND_PED(
     id_productora number(5) not null,
     id_pedido number(6) not null,
     id_chocolateria number(4) not null,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_cond_pago,id_productora,id_pedido,id_chocolateria,id_lugar)
 );
 /* ===== TABLES FIN ===== */
@@ -417,6 +418,3 @@ alter table DISPONIBILIDAD_ENV
 	add foreign key (id_presentacion,id_catl,id_productora)
 		references PRESENTACION (id_presentacion,id_catl,id_productora);
 /* ===== FOREING KEYS FIN ===== */
-
-/* ===== Constraints ===== */
-

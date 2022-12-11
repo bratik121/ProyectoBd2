@@ -22,8 +22,7 @@ HORARIO_NT(
     TURNO('martes',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss')),
     TURNO('miercoles',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss')),
     TURNO('jueves',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss')),
-    TURNO('viernes',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss'))
-        ),
+    TURNO('viernes',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss'))),
         4);
 
 insert into CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) values 
@@ -47,6 +46,5 @@ HORARIO_NT(
     TURNO('jueves',to_date('10:00:00','hh24:mi:ss'),to_date('19:30:00','hh24:mi:ss')),
     TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('19:30:00','hh24:mi:ss')),
     TURNO('viernes',to_date('11:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
-)
-
+),
 )

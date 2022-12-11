@@ -1,5 +1,3 @@
-
-
 /* ===== NESTED TABLES ===== */
 create or replace type DETALLE_NT as table of DETALLE;
 /
