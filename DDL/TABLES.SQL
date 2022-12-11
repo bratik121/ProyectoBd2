@@ -34,11 +34,11 @@ create table DET_EXPED(
     primary key (id_cacao,id_productora,id_contr,id_chocolateria,id_lugar)
 ) nested table envios store as ENVIO_TAB ;
 
-create table PRODUCTORA(
+create or replace table PRODUCTORA(
     id_productora number(5) not null,
     nombre varchar2(25) not null,
     logo Bfile not null,
-    mision varchar2(200) not null,
+    mision varchar2(500) not null,
     tipo varchar2(15) not null,
     id_lugar number(4),
     primary key (id_productora),
@@ -78,14 +78,14 @@ create table DISPONIBILIDAD_ENV(
     primary key (id_disponibilidad,id_lugar)
 );
 
-create table LUGAR(
+create or replace table LUGAR(
     codigo number(4) not null,
     tipo varchar2(10) not null,
     nombre varchar2(25) not null,
     continente varchar2(25),
     codigo_lug_2 number(4),
     primary key (codigo),
-    constraint tipo_lugar check (tipo in ('pais', 'ciudad', 'region'))
+    constraint tipo_continente check (continente in ('SA', 'NA', 'OCE', 'AS', 'EU', 'AFR'))
 );
 
 create table CONTRATO(
@@ -152,18 +152,19 @@ create table FORMULA(
 );
 
 create table CHOCOLATERIA(
-    id_chocolateria number(4) not null,
-    precio_kg number(4) not null,
-    precio_esp PRECIO,
+    id_chocolateria number(4) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
+    precio_kg number(4,2) not null,
+    precio_esp PRECIO_NT,
     nombre varchar2(25) not null,
     logo Bfile not null,
     contacto CONTAC_ARRAY,
     fecha_fundacion date not null,
     direccion DIR,
     horarios HORARIO_NT,
-    id_lugar number(4) not null,
+    id_lugar number(8) not null,
     primary key (id_chocolateria,id_lugar)
-) nested table horarios store as HORARIO_TAB ;
+) nested table horarios store as HORARIO_TAB 
+  nested table precio_esp store as PRECIO_TAB;
 
 create table PEDIDO(
     id_pedido number(8) not null,
@@ -416,3 +417,6 @@ alter table DISPONIBILIDAD_ENV
 	add foreign key (id_presentacion,id_catl,id_productora)
 		references PRESENTACION (id_presentacion,id_catl,id_productora);
 /* ===== FOREING KEYS FIN ===== */
+
+/* ===== Constraints ===== */
+

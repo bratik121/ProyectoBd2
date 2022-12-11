@@ -27,7 +27,7 @@ create or replace type LOTE as object(
 );
 /
 create or replace type PRECIO as object(
-    precio number(6),
+    precio number(6,2),
     ingrediente varchar2(25)
 );
 /
@@ -41,7 +41,8 @@ create or replace type DIR as object(
 /
 create or replace type CONTAC as object(
     email varchar2(35),
-    tlfn number(15)
+    tlfn number(15),
+    tlfn_2 number(15)
 );
 /
 create or replace type VOTO as object(
