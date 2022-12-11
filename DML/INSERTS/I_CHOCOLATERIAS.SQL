@@ -46,3 +46,27 @@ HORARIO_NT(
     TURNO('viernes',to_date('11:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
 ),
 34);
+
+INSERT INTO CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) VALUES 
+(66.6,
+PRECIO_NT(
+    PRECIO(71.3,'almendras al cacao'),
+    PRECIO(60.3,'sin azicar'),
+    PRECIO(69,'mantequilla'),
+    PRECIO(73.2,'licor'),
+    PRECIO(80,'soja')),
+'Bomboneria Pons',
+BFILENAME('direc_imagenes_chocolateria','bomboneria_pons.png'),
+CONTAC_ARRAY(
+    CONTAC('tienda@bomboneriapons.com',933327046,null)),
+to_date('03/08/1960','dd/mm/yyyy'),
+DIR('Calle Olzinelles','unico',78,'local','la bordeta'),
+HORARIO_NT(
+    TURNO('lunes',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('martes',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('miercoles',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('jueves',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('viernes',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('viernes',to_date('9:00:00','hh24:mi:ss'),to_date('19:00:00','hh24:mi:ss'))
+),
+)

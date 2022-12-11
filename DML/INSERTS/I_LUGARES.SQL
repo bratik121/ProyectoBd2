@@ -16,6 +16,7 @@ insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (22215,'region','San M
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (92110,'region','San Diego',1);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (215,'region','pennsylvania',1);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (28001,'region','Madrid',34);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (08014,'region','Barcelona',34);
 /*CIUDADES*/
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (1221,'ciudad','Guatire',1080);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (090101,'ciudad','Guayaquil',090109);
