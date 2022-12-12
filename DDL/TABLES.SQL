@@ -104,11 +104,11 @@ create table CONTRATO(
 create table COND_PAGO_ENVIO(
     id_cond_pago number(5) GENERATED AS IDENTITY (START WITH 1 INCREMENT BY 1) not null,
     tipo varchar2(20) not null,
-    porc_recargo_env number(3),
+    porc_recargo_env number(4,2),
     cant_cuotas number(2),
-    porc_cuota number(3),
-    contado_env number(7),
-    contado_años_env number(12),
+    porc_cuota number(4,2),
+    contado_env number(1),
+    contado_antes_env number(1),
     id_productora number(5) not null,
     primary key (id_cond_pago,id_productora),
     constraint tipo_pago check (tipo in ('envio', 'pago_contado', 'pago_credito'))

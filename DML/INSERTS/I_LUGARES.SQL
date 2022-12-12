@@ -11,6 +11,12 @@ insert into LUGAR(codigo,tipo,nombre,continente) values (1,'pais','Estados Unido
 insert into LUGAR(codigo,tipo,nombre,continente) values (34,'pais','España','EU');
 insert into LUGAR(codigo,tipo,nombre,continente) values (54,'pais','Argentina','SA');
 insert into LUGAR(codigo,tipo,nombre,continente) values (351,'pais','Portugal','EU');
+insert into LUGAR(codigo,tipo,nombre,continente) values (233,'pais','Ghana','AFR');
+insert into LUGAR(codigo,tipo,nombre,continente) values (868,'pais','Trinidad y Tobago','SA');
+insert into LUGAR(codigo,tipo,nombre,continente) values (809,'pais','Republica Dominicana','SA');
+insert into LUGAR(codigo,tipo,nombre,continente) values (1876,'pais','Jamaica','SA');
+insert into LUGAR(codigo,tipo,nombre,continente) values (62,'pais','Indonesia','AS');
+insert into LUGAR(codigo,tipo,nombre,continente) values (237,'pais','Camerún','AFR');
 /*REGIONES*/
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (1080,'region','Miranda',58);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (090109,'region','Guayas',593);
@@ -22,10 +28,16 @@ insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (08014,'region','Barce
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (1042,'region','Buenos Aires',54);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (20074,'region','Washington',54);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (4000,'region','Oporto',351);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (030,'region','Accra',233);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (5115,'region','Merida',58);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (4004,'region','Zulia',58);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (17844,'region','Java',62);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (36502,'region','Mamfe',237);
 /*CIUDADES*/
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (1221,'ciudad','Guatire',1080);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (090101,'ciudad','Guayaquil',090109);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (22601,'ciudad','Juanjui',090101);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (98108,'ciudad','Seattle',20074);
 insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (4700,'ciudad','Braga',4000);
+insert into LUGAR(codigo,tipo,nombre,codigo_lug_2) values (4016,'ciudad','Maracaibo',4004);
 commit;

@@ -143,7 +143,7 @@ HORARIO_NT(
     TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
     TURNO('sabado',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
     TURNO('domingo',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
-)4700,
+)4700
 );
 
 
