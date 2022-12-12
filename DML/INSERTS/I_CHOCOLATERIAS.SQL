@@ -116,9 +116,34 @@ HORARIO_NT(
     TURNO('jueves',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
     TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
     TURNO('sabado',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
-    TURNO('domingo',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('domingo',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss'))
 ),
 98108
-)
+);
+
+insert into CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) VALUES 
+(75.74,
+PRECIO_NT(
+    PRECIO(79.42,'aceite aromatizado'),
+    PRECIO(85.74,'frutos rojos'),
+    PRECIO(82.34,'queso'),
+    PRECIO(80,'parchita'),
+    PRECIO(90,'licor con pimienta')),
+    'Chocolate com pimenta',
+BFILENAME('direc_imagenes_chocolateria','chocolate_com_pimenta.png'),
+CONTAC_ARRAY(
+    CONTAC('geral@chocolatecompimenta.pt',312017,4730684),
+    CONTAC('chocolatecompimenta.vvd@gmail.com',null, null)),
+to_date('01/07/2014','dd/mm/yyyy'),
+DIR('Avenida Professor Machado Vilela','unico',147,'local','Vila verde'),
+HORARIO_NT(
+    TURNO('martes',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('miercoles',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('jueves',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('sabado',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
+    TURNO('domingo',to_date('10:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
+)4700,
+);
 
 
