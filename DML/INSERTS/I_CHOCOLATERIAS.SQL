@@ -22,7 +22,7 @@ HORARIO_NT(
     TURNO('miercoles',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss')),
     TURNO('jueves',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss')),
     TURNO('viernes',to_date('7:30:00','hh24:mi:ss'),to_date('16:00:00','hh24:mi:ss'))),
-        58);
+        1080);
 
 insert into CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) values 
 (87.24,
@@ -45,7 +45,7 @@ HORARIO_NT(
     TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('19:30:00','hh24:mi:ss')),
     TURNO('viernes',to_date('11:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
 ),
-34);
+28001);
 
 INSERT INTO CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) VALUES 
 (66.6,
@@ -69,4 +69,5 @@ HORARIO_NT(
     TURNO('viernes',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
     TURNO('viernes',to_date('9:00:00','hh24:mi:ss'),to_date('19:00:00','hh24:mi:ss'))
 ),
-)
+08014);
+
