@@ -43,7 +43,7 @@ HORARIO_NT(
     TURNO('miercoles',to_date('10:00:00','hh24:mi:ss'),to_date('19:30:00','hh24:mi:ss')),
     TURNO('jueves',to_date('10:00:00','hh24:mi:ss'),to_date('19:30:00','hh24:mi:ss')),
     TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('19:30:00','hh24:mi:ss')),
-    TURNO('viernes',to_date('11:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
+    TURNO('sabado',to_date('11:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss'))
 ),
 28001);
 
@@ -67,7 +67,31 @@ HORARIO_NT(
     TURNO('miercoles',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
     TURNO('jueves',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
     TURNO('viernes',to_date('8:00:00','hh24:mi:ss'),to_date('20:00:00','hh24:mi:ss')),
-    TURNO('viernes',to_date('9:00:00','hh24:mi:ss'),to_date('19:00:00','hh24:mi:ss'))
+    TURNO('sabado',to_date('9:00:00','hh24:mi:ss'),to_date('19:00:00','hh24:mi:ss'))
 ),
 08014);
+
+INSERT INTO CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) VALUES 
+(62.7,
+PRECIO_NT(
+    PRECIO(72.3,'anis'),
+    PRECIO(65,'cafe amargo'),
+    PRECIO(69.7,'nuez'),
+    PRECIO(78,'almendras'),
+    PRECIO(65,'naranja')),
+'Bombonella',
+BFILENAME('direc_imagenes_chocolateria','bombonella.jpg'),
+CONTAC_ARRAY(
+    CONTAC('bbombonella@hotmail.com',64928386,43710633))
+to_date('19/07/1928','dd/mm/yyyy'),
+DIR('Corrientes','unico',1479,'local','la bordeta'),
+HORARIO_NT(
+    TURNO('lunes',to_date('9:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss')),
+    TURNO('martes',to_date('9:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss')),
+    TURNO('miercoles',to_date('9:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss')),
+    TURNO('jueves',to_date('9:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss')),
+    TURNO('viernes',to_date('9:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss')),
+    TURNO('sabado',to_date('10:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss'))
+),
+1042);
 
