@@ -82,7 +82,7 @@ PRECIO_NT(
 'Bombonella',
 BFILENAME('direc_imagenes_chocolateria','bombonella.jpg'),
 CONTAC_ARRAY(
-    CONTAC('bbombonella@hotmail.com',64928386,43710633))
+    CONTAC('bbombonella@hotmail.com',64928386,43710633)),
 to_date('19/07/1928','dd/mm/yyyy'),
 DIR('Corrientes','unico',1479,'local','la bordeta'),
 HORARIO_NT(
@@ -94,4 +94,31 @@ HORARIO_NT(
     TURNO('sabado',to_date('10:00:00','hh24:mi:ss'),to_date('20:30:00','hh24:mi:ss'))
 ),
 1042);
+
+insert into CHOCOLATERIA (precio_kg,precio_esp,nombre,logo,contacto,fecha_fundacion, direccion,horarios,id_lugar) VALUES 
+(82.3,
+PRECIO_NT(
+    PRECIO(110,'champaña'),
+    PRECIO(87.5,'naranja'),
+    PRECIO(90,'avellana'),
+    PRECIO(92.3,'caramelo suave'),
+    PRECIO(95,'caramelo fuerte')),
+'Frans Chocolates',
+BFILENAME('direc_imagenes_chocolateria','frans_chocolates.png'),
+CONTAC_ARRAY(
+    CONTAC('janed@franschocolates.com',5084535,null)),
+to_date('22/08/1982','dd/mm/yyyy'),
+DIR('Airport Way South','unico',5900 ,'local','Georgetown'),
+HORARIO_NT(
+    TURNO('lunes',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('martes',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('miercoles',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('jueves',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('viernes',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('sabado',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+    TURNO('domingo',to_date('10:00:00','hh24:mi:ss'),to_date('17:00:00','hh24:mi:ss')),
+),
+98108
+)
+
 
