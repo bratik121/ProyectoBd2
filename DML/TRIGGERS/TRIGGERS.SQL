@@ -1,0 +1,2 @@
+CREATE OR REPLACE TRIGGER actualizar_lugar
+    BEFORE UPDATE 
